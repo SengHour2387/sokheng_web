@@ -2,6 +2,7 @@
 
 import { useProducts } from '@/hooks/use-products';
 import Image from 'next/image';
+import ProductCard from '../ui/productCard';
 
 export default function ProductList() {
     const { products, loading, error } = useProducts();
@@ -20,29 +21,18 @@ export default function ProductList() {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-6">Featured Products</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                 {products.map((product) => (
-                    <div key={product.id} className="bg-black-100 rounded-3xl shadow-xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                        <div className="relative h-48 w-full " >
-                            <Image
-                                src={product.images && product.images.length > 0 ? product.images[0].image : '/placeholder.png'}
-                                alt={product.name}
-                                fill
-                                className="object-cover p-2 rounded-3xl"
-                            />
-                        </div>
-                        <div className="p-4">
-                            <h3 className="text-lg font-semibold truncate" title={product.name}>
-                                {product.name}
-                            </h3>
-                            <p className="text-gray-500 text-sm mt-1 capitalize">{product.mainCategory}</p>
-                            <div className="flex justify-between items-center mt-4">
-                                <span className="text-xl font-bold">${product.price}</span>
-                            
-                            </div>
-                        </div>
-                    </div>
+                    <ProductCard product={product} key={product.id} />
+                ))}
+                {products.map((product) => (
+                    <ProductCard product={product} key={product.id} />
+                ))}
+                {products.map((product) => (
+                    <ProductCard product={product} key={product.id} />
+                ))}
+                {products.map((product) => (
+                    <ProductCard product={product} key={product.id} />
                 ))}
             </div>
         </div>
