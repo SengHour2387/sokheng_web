@@ -12,7 +12,7 @@ export default function ProductCard({ product }: { product: Product }) {
                                         alt={product.name}
                                         fill
                                         objectFit="cover"
-                                        className="rounded-2xl p-2" 
+                                        className="rounded-2xl p-2"
                                     />
                                 </div>
                                 <div className=" z-10  m-2 relative bottom-0 pt-2">

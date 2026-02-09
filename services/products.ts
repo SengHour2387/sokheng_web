@@ -3,9 +3,9 @@ import { Product } from '@/types';
 
 export const ProductService = {
     async getAll(): Promise<Product[]> {
-        const response = await apiClient.get<Product[]>('/post/findAllProducts');
-        console.log(response.data);
-        return response.data;
+        const response = await apiClient.get('/products?page=1&limit=5');
+        console.log(response.data["data"]);
+        return response.data["data"];
     },
 
     async getById(id: number | string): Promise<Product> {
